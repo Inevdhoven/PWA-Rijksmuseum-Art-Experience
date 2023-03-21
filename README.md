@@ -1,5 +1,38 @@
 # Server side Rijksmuseum Art Experience
 
+In deze repo kun je de server side versie van de Rijksmuseum Art Experience vinden. Dit project heb ik eerst gemaakt met het van Web App From Scratch voor de Minor Web Design & Development en heb ik nu omgezet naar een server side versie, met Node.js en Express.
+
+Hier komt een afbeelding van mijn werk.
+
+## Live demo
+
+## Tabel of contents
+
+- [Hoe installeer je dit project?](#hoe-installeer-je-dit-project)
+- [Hoe gebruik je dit project?](#hoe-gebruik-je-dit-project)
+- [Client-Server rendering](#client-server-rendering)
+- [Activity diagram](#activity-diagram)
+- [List of enhancements to optimize the critical render path](#list-of-enhancements-to-optimize-the-critical-render-path)
+- [Wat heb ik allemaal gedaan?](#wat-heb-ik-allemaal-gedaan)
+- [Bronnen](#bronnen)
+- [License](#license)
+
+## Hoe installeer je dit project?
+
+## Hoe gebruik je dit project?
+
+## Client-Server rendering
+
+## Activity diagram
+
+## List of enhancements to optimize the critical render path
+
+## Wat heb ik allemaal gedaan?
+
+## Bronnen
+
+## License
+
 <!-- Here are some hints for your project! -->
 
 <!-- Start out with a title and a description -->
