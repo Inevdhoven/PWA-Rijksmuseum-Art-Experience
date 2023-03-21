@@ -1,0 +1,39 @@
+<main>
+  <section id="homepage">
+    <section>
+      <h1>Bekijk kunst altijd en overal</h1>
+      <img src="" alt="">
+    </section>
+    <section>
+      <h2>Top stukken:</h2>
+      <ul>
+        {{#each data}}
+          <li>
+            <a href="/details/{{this.id}}">
+              <img src="{{this.webImage.url}}" alt="{{this.title}}">
+              <h3>{{this.title}}</h3>
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </section>
+    <section>
+      <h2>Onderwerpen</h2>
+      <ul>
+        <li><a href="/kunstenaars">Kunstenaars</a></li>
+        <li><a href="/potten">Potten</a></li>
+        <li><a href="/meubels">Meubels</a></li>
+        <li><a href="/fotos">Foto's</a></li>
+        <li><a href="/schilderijen">Schilderijen</a></li>
+        <li><a href="/beeldhouwwerken">Beeldhouwwerk</a></li>
+        <li><a href="/porselein">Porselein</a></li>
+        <li><a href="/hout">Hout</a></li>
+        <li><a href="/olieverf">Olieverf</a></li>
+        <li><a href="/goud">Goud</a></li>
+        <li><a href="/diamant">Diamant</a></li>
+        <li><a href="/ijzer">Ijzer</a></li>
+        <li><a href="/papier">Papier</a></li>
+      </ul>
+    </section>
+  </section>
+</main>
