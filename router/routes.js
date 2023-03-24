@@ -132,6 +132,14 @@ router.get('/details/:objectNumber', async (req, res) => {
     res.render('details', {layout : 'index', result: result});
 });
 
+// router.post('/formPost', (req, res) => {
+
+//     console.log('@@-- test', req.body );
+//     res.send('heyyy');
+//     // res.json({message: 'Form data received'});
+//     // res.render('search', {layout : 'index'});
+// })
+
 router.get('/error', (req, res) => {
     res.render('error', {layout : 'index'});
 })
