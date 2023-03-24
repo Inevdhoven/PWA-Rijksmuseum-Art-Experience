@@ -1,4 +1,4 @@
-<main>
+<main class="details">
     <a href="javascript: history.go(-1)">Terug</a> 
     <button>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" data-reactroot="">
@@ -9,8 +9,8 @@
         </svg>
     </button>
     <div>
-        <h1>Details</h1>
-        <p>test test</p>
+        <h1>{{result.title}}</h1>
+        <p>{{result.description}}</p>
     </div>
-    {{!-- <img src="${artWork.webImage?.url || './images/placeholder.png'}"/> --}}
+    <img src="{{result.webImage.url}}" alt="{{result.title}}"/>
 </main>
