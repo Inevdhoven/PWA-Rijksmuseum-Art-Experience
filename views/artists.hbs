@@ -1,0 +1,11 @@
+<main class="category artists">
+    <a href="javascript: history.go(-1)">Terug</a> 
+    <h1>Kunstenaars</h1>
+    <ul>
+        {{#each result}}
+            <li>
+                <a href="/kunstenaars/{{this}}">{{this}}</a>
+            </li>
+        {{/each}}
+    </ul>
+</main>
