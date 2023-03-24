@@ -1,14 +1,45 @@
 <main class="search">
-    <input type="text" list="searchitems" placeholder="Zoeken..." name="search">
-    <datalist id="searchitems">
-        <option value="Rembrandt van Rijn"></option>
-        <option value="Johannes Vermeer"></option>
-        <option value="Jacob Isaacksz van Ruisdael"></option>
-        <option value="Jan Havicksz. Steen"></option>
-        <option value="Vincent van Gogh"></option>
-    </datalist>
-    <button type="submit"></button>
-    <ul class="search-results">
+    <form action="/submit-form" method="POST">
+<label for="name">Name:</label>
+ <input type="text" id="name" name="name"><br>
+<label for="email">Email:</label>
+<input type="text" id="email" name="email"><br>
+<label for="message">Message:</label>
+<textarea id="message" name="message"></textarea><br>
+<button type="submit">Submit</button>
+</form>
+
+
+
+    {{!-- <form action="/formPost" method="post">
+        <label for="search"></label>
+        <input type="text" name="search" id="search"  placeholder="Zoeken...">
+        {{!-- list="searchitems" --}}
+        {{!-- <datalist id="searchitems">
+            <option value="Rembrandt van Rijn"></option>
+            <option value="Johannes Vermeer"></option>
+            <option value="Jacob Isaacksz van Ruisdael"></option>
+            <option value="Jan Havicksz. Steen"></option>
+            <option value="Vincent van Gogh"></option>
+        </datalist> --}}
+        <button type="submit" value="submit"></button>
+    </form> --}}
+
+    {{!-- <form method="POST" action="/formPost">
+        <label for="test_field">hii</label>
+        <input type="text" name="test_field" id="test_field">
+        <label for="example">vul in</label>
+        <input type="text" id="example" name="example">
+        <select name="test" id="test">
+            <option value="Rembrandt">Rembrandt</option>
+            <option value="vermee">vermeer</option>
+        </select>
+        <input type="submit">submit</input>
+    </form> --}}
+    
+    
+    
+    {{!-- <ul class="search-results">
         {{#each result}}
             <li>
                 <a href="/details/{{this.objectNumber}}">
@@ -17,5 +48,5 @@
                 </a>
             </li>
         {{/each}}
-    </ul>
+    </ul> --}}
 </main>
