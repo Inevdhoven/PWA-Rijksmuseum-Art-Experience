@@ -1,0 +1,16 @@
+<main class="category overview">
+    <a href="javascript: history.go(-1)">Terug</a> 
+    <h1>{{this.title}}</h1>
+    <ul>
+        {{#each result}}
+            <li>
+                <a href="/details/{{this.objectNumber}}">
+                    <h2>{{this.title}}</h2>
+                    {{#if this.webImage.url}}
+                    <img src="{{this.webImage.url}}" alt="{{this.title}}">
+                    {{/if}}
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</main>

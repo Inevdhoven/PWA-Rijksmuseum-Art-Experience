@@ -1,5 +1,5 @@
 <main class="search">
-    <input type="text" list="searchitems" placeholder="Zoeken...">
+    <input type="text" list="searchitems" placeholder="Zoeken..." name="search">
     <datalist id="searchitems">
         <option value="Rembrandt van Rijn"></option>
         <option value="Johannes Vermeer"></option>
@@ -8,4 +8,14 @@
         <option value="Vincent van Gogh"></option>
     </datalist>
     <button type="submit"></button>
+    <ul class="search-results">
+        {{#each result}}
+            <li>
+                <a href="/details/{{this.objectNumber}}">
+                    <img src="{{this.webImage.url}}" alt="{{this.title}}">
+                    <h2>{{this.title}}</h2>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
 </main>
