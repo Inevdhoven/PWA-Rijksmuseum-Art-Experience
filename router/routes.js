@@ -1,5 +1,5 @@
 import express from 'express';
-import request from 'request';
+// import request from 'request';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 
@@ -62,7 +62,11 @@ async function fetchDetailsData(objectNumber) {
     }
 }
 
-router.get('/', async (req, res) => {
+// router.get('/', async (req, res) => {
+//     res.render('zero-state', {layout : 'index'});
+// });
+
+router.get('/home', async (req, res) => {
     const homeData = await fetchHomeData();
     const heroObject = homeData[1].artObjects.find(artObject => artObject.objectNumber === 'SK-A-3064');
 
@@ -70,10 +74,15 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/zoeken', async (req, res) => {
-    const searchValue = req.query.search;
-    console.log(searchValue)
     res.render('search', {layout : 'index'});
 })
+
+router.post('/zoek-resultaten', async (req, res) => {
+    const searchValue = req.body.search;
+    const searchData = await fetchCatagoryData(null, null, searchValue);
+    const result = searchData[2];
+    res.render('search', {layout : 'index', result: result.artObjects});
+});
 
 router.get('/categorie/kunstenaars', async (req, res) => {
     const homeData = await fetchHomeData();
