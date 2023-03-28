@@ -14,6 +14,7 @@ app.set('views', 'views')
 
 
 app.use(express.static(__dirname + '/static')); // Hier zit bijvoorbeeld css in
+app.use('/', express.static(__dirname + '/'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
@@ -30,14 +31,14 @@ app.engine('hbs', handlebars.engine({
 app.use('/', router);
 
 
-app.get('/', function(req, res){
-    if(req.session.page_views){
-        res.redirect('/home');
-    } else {
-       req.session.page_views = 1;
-       res.render('zero-state', {layout : 'index'});
-    }
- });
+// app.get('/', function(req, res){
+//     if(req.session.page_views){
+//         res.redirect('/home');
+//     } else {
+//        req.session.page_views = 1;
+//        res.render('zero-state', {layout : 'index'});
+//     }
+//  });
 
 app.listen(port, () => {
     console.log(`Now listening on port ${port}`); 
