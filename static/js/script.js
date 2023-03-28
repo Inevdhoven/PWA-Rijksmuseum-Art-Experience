@@ -9,3 +9,10 @@ window.addEventListener('scroll', function() {
         header.classList.remove('scroll') // De class scroll wordt verwijderd van de header
     }
 })
+
+window.addEventListener("load", () => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js")
+      console.log("Service Worker Registered")
+    }
+});
