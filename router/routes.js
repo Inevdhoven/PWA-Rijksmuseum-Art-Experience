@@ -66,6 +66,15 @@ async function fetchDetailsData(objectNumber) {
 //     res.render('zero-state', {layout : 'index'});
 // });
 
+router.get('/', function(req, res){
+    if(req.session.page_views){
+        res.redirect('/home');
+    } else {
+       req.session.page_views = 1;
+       res.render('zero-state', {layout : 'index'});
+    }
+});
+
 router.get('/home', async (req, res) => {
     const homeData = await fetchHomeData();
     const heroObject = homeData[1].artObjects.find(artObject => artObject.objectNumber === 'SK-A-3064');
@@ -123,9 +132,7 @@ router.get('/materiaal/:material', async (req, res) => {
 router.get('/q/:q', async (req, res) => {
     const q = req.params.q;
     const categoryData = await fetchCatagoryData(null, null, q);
-    const result = categoryData[2];
-
-    console.log(categoryData)
+    const result = categoryData[2].artObjects;
 
     res.render('category', {layout : 'index', result: result, category: q});
 });
@@ -141,13 +148,9 @@ router.get('/details/:objectNumber', async (req, res) => {
     res.render('details', {layout : 'index', result: result});
 });
 
-// router.post('/formPost', (req, res) => {
-
-//     console.log('@@-- test', req.body );
-//     res.send('heyyy');
-//     // res.json({message: 'Form data received'});
-//     // res.render('search', {layout : 'index'});
-// })
+router.get('/offline', (req, res) => {
+    res.render('offline', {layout : 'index'});
+});
 
 router.get('/error', (req, res) => {
     res.render('error', {layout : 'index'});
