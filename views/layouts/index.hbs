@@ -3,17 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
-    <title>Rijksmuseum Art Experience</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1f1f1f"/>
+    <meta name="description" content="De Rijksmuseum Art Experience App waar je altijd en overal kunst kunt bekijken.">
+    <title>Rijksmuseum Art Experience</title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <link rel="apple-touch-icon" href="/images/icon-384x384.png">
     <link rel="icon" type="image/png" href="/images/favicon.png"> <!-- Source: favicon van https://www.w3schools.com/howto/howto_html_favicon.asp -->
+    <script defer src="/js/script.js"></script>
   </head>
   <body>
     {{!-- {{> loader }} --}}
     {{> header }}
     {{{body}}}
 
-    <script defer src="/js/script.js"></script>
   </body>
 </html>
