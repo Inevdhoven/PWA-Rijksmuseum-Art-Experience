@@ -4,8 +4,6 @@ In deze repo kun je de server side versie van de Rijksmuseum Art Experience vind
 
 Hier komt een afbeelding van mijn werk.
 
-## Live demo
-
 ## Tabel of contents
 
 - [Hoe installeer je dit project?](#hoe-installeer-je-dit-project)
@@ -19,9 +17,31 @@ Hier komt een afbeelding van mijn werk.
 
 ## Hoe installeer je dit project?
 
+Je kunt dit project installeren door een clone te maken van dit project. Hiervoor heb je Git nodig. Als je Git hebt geïnstalleerd, ga je eerst naar de map waar je dit project in wilt zetten. Daarna kun je het volgende commando's in je terminal typen:
+
+1. `git clone https://github.com/Inevdhoven/PWA-Rijksmuseum-Art-Experience.git`
+
+2. `cd PWA-Rijksmuseum-Art-Experience`
+
+3. `npm install`
+
+4. Maak een key aan om de [Rijksmuseum API](https://www.rijksmuseum.nl/nl/rijksstudio/) te kunnen gebruiken. Dit kun je doen door naar je profiel te gaan en dan naar instellingen daar kun je een key aanmaken.
+
+5. Maak een .env bestand aan in de root van het project en voeg hier je key toe. Er moet het volgende in komen te staan: `API_KEY = 'YOUR_API_KEY'`
+
+6. Zet het .env bestand in de gitignore.
+
+7. `npm run start`
+
+8. Nu kun je het project bekijken op `http://localhost:3000/`
+
 ## Hoe gebruik je dit project?
 
-## Client-Server rendering
+Deze versie van de Rijksmuseum Art Experience is een progressive web app, dit betekent dat de app server sitde wordt gerenderd. Dit betekent ook dat je de app kan downloaden op mobiel en desktop door op het download icoontje in de browserbalk te klikken of op telefoon op add to home screen te klikken.
+
+Wanneer je de webapp opent kom je op de homepage. Hier kun je de top 10 kunstwerken bekijken, deze verander om de paar dagen. Hierdoor blijft het leuk om ernaar te kijken. Je kunt ook op onderwerp zoeken, zoals schilderijen, potten of meubels. Daarnaast kun je ook naar een specifiek kunstwerk zoeken, door bovenin op het zoek icoontje te klikken. Wanneer je op een kunstwerk klikt, kom je op een detailpagina waar je meer informatie over het kunstwerk kunt lezen.
+
+## Client-Server rendering choices
 
 ## Activity diagram
 
@@ -29,9 +49,30 @@ Hier komt een afbeelding van mijn werk.
 
 ## Wat heb ik allemaal gedaan?
 
+| TO DO                                                      | STATUS             |
+| ---------------------------------------------------------- | ------------------ |
+| Refactor WAFS to server side version met Node.js & Express | :white_check_mark: |
+| App omzetten van client side naar server side              | :white_check_mark: |
+| Tooling toevoegen                                          |                    |
+| Manifest toevoegen                                         | :white_check_mark: |
+| Service Worker toevoegen                                   | :white_check_mark: |
+| Het maken van een activity diagram                         |                    |
+| Performance optimaliseren                                  |                    |
+| Instaleer app op een online web server                     |                    |
+| Readme schrijven                                           |                    |
+
 ## Bronnen
 
+## Credits
+
+Ik wil graag de volgende mensen bedanken voor hun hulp:
+
+- De docenten van het vak Progressive Web Apps
+- Mijn medestudenten
+
 ## License
+
+De license die voor de Rijksmuseum Art Experience word gebruikt is MIT. Meer informatie over de MIT license kun je [hier](https://github.com/Inevdhoven/PWA-Rijksmuseum-Art-Experience/blob/main/LICENSE) lezen.
 
 <!-- Here are some hints for your project! -->
 
