@@ -25,20 +25,42 @@ app.engine('hbs', handlebars.engine({
     layoutsDir: __dirname + '/views/layouts',
     extname: 'hbs',
     defaultLayout: 'index',
-    partialsDir: __dirname + '/views/partials'
+    partialsDir: __dirname + '/views/partials',
+    helpers: {
+        replaceS0: function (url) {
+            if (url.includes('=s0')) {
+                return url.replace('=s0', '=s500');
+            }
+            return url;
+        },
+        replaceS1: function (url) {
+            if (url.includes('=s0')) {
+                return url.replace('=s0', '=s900');
+            }
+            return url;
+        },
+        replaceS2: function (url) {
+            if (url.includes('=s0')) {
+                return url.replace('=s0', '=s1200');
+            }
+            return url;
+        },
+        replaceS3: function (url) {
+            if (url.includes('=s0')) {
+                return url.replace('=s0', '=s1500');
+            }
+            return url;
+        },
+        replaceS4: function (url) {
+            if (url.includes('=s0')) {
+                return url.replace('=s0', '=s300');
+            }
+            return url;
+        },
+    }
 }))
 
 app.use('/', router);
-
-
-// app.get('/', function(req, res){
-//     if(req.session.page_views){
-//         res.redirect('/home');
-//     } else {
-//        req.session.page_views = 1;
-//        res.render('zero-state', {layout : 'index'});
-//     }
-//  });
 
 app.listen(port, () => {
     console.log(`Now listening on port ${port}`); 
