@@ -1,5 +1,5 @@
-const CORE_CACHE = 1
-const CORE_CACHE_NAME = `offline-v${CORE_CACHE}`
+const CORE_CACHE = 1 // Versienummer van de cache
+const CORE_CACHE_NAME = `offline-v${CORE_CACHE}` // Naam van de cache
 const CORE_ASSETS = 
 [
   "/static/css/style.css",
@@ -16,7 +16,7 @@ const CORE_ASSETS =
 
 // Service worker wordt geïnstalleerd
 self.addEventListener('install', event => {
-  console.log('Installing service worker')
+  // console.log('Installing service worker')
 
   event.waitUntil(
     caches.open(CORE_CACHE_NAME)
@@ -29,22 +29,22 @@ self.addEventListener('install', event => {
 
 // Service worker wordt geactiveerd
 self.addEventListener("activate", (event) => {
-  console.log("Activating service worker")
+  // console.log("Activating service worker")
   event.waitUntil(clients.claim())
 })
 
 self.addEventListener('fetch', event => {
-  console.log('Fetch event: ', event.request.url);
+  // console.log('Fetch event: ', event.request.url);
 
   if (isCoreGetRequest(event.request)) {
-    console.log('Core get request: ', event.request.url);
+    // console.log('Core get request: ', event.request.url);
     
     event.respondWith(
       caches.open(CORE_CACHE_NAME)
         .then(cache => cache.match(event.request.url))
     )
   } else if (isHtmlGetRequest(event.request)) {
-    console.log('html get request', event.request.url)
+    // console.log('html get request', event.request.url)
   
     event.respondWith(
 
