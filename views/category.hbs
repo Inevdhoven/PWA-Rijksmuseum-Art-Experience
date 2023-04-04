@@ -6,7 +6,7 @@
             <li>
                 <a href="/details/{{this.id}}">
                     {{#if this.webImage.url}}
-                    <img src="{{this.webImage.url}}" alt="{{this.title}}">
+                        <img src="{{replaceS0 this.webImage.url}}" alt="{{this.title}}">
                     {{/if}}
                     <h2>{{this.title}}</h2>
                 </a>

@@ -2,7 +2,13 @@
   <section id="homepage">
     <section>
       <h1>Bekijk kunst altijd en overal</h1>
-      <img src="{{hero.webImage.url}}" alt="{{hero.title}}">
+      {{!-- <img src="{{replaceS0 hero.webImage.url}}" alt="{{hero.title}}"> --}}
+      <picture>
+        <source media="(max-width: 499px)" srcset="{{replaceS0 hero.webImage.url}}" />
+        <source media="(min-width: 500px)" srcset="{{replaceS1 hero.webImage.url}}" />
+        <source media="(max-width: 1024px)" srcset="{{replaceS2 hero.webImage.url}}" />
+        <img src="{{replaceS3 hero.webImage.url}}" alt="{{hero.title}}" />
+      </picture>
     </section>
     <section>
       <h2>Top stukken:</h2>
@@ -10,7 +16,7 @@
         {{#each data}}
           <li>
             <a href="/details/{{this.id}}">
-              <img src="{{this.webImage.url}}" alt="{{this.title}}">
+              <img src="{{replaceS4 this.webImage.url}}" alt="{{this.title}}">
               <h3>{{this.title}}</h3>
             </a>
           </li>

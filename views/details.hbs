@@ -1,6 +1,7 @@
 <main class="details">
     <a href="javascript: history.go(-1)">Terug</a> 
     <button>
+        Bekijk de afbeelding fullscreen
         <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" data-reactroot="">
             <path fill="#ffffff" d="M15 2C15 1.44772 15.4477 1 16 1H22C22.5523 1 23 1.44772 23 2V8C23 8.55228 22.5523 9 22 9C21.4477 9 21 8.55228 21 8V3H16C15.4477 3 15 2.55228 15 2Z" clip-rule="evenodd" fill-rule="evenodd" undefined="1"></path>
             <path fill="#ffffff" d="M1 2C1 1.44772 1.44772 1 2 1H8C8.55228 1 9 1.44772 9 2C9 2.55228 8.55228 3 8 3H3V8C3 8.55228 2.55228 9 2 9C1.44772 9 1 8.55228 1 8V2Z" clip-rule="evenodd" fill-rule="evenodd" undefined="1"></path>
@@ -12,5 +13,11 @@
         <h1>{{result.title}}</h1>
         <p>{{result.description}}</p>
     </div>
-    <img src="{{result.webImage.url}}" alt="{{result.title}}"/>
+    {{!-- <img src="{{result.webImage.url}}" alt="{{result.title}}"/> --}}
+    <picture>
+        <source media="(max-width: 499px)" srcset="{{replaceS0 result.webImage.url}}" />
+        <source media="(min-width: 500px)" srcset="{{replaceS1 result.webImage.url}}" />
+        <source media="(max-width: 1024px)" srcset="{{replaceS2 result.webImage.url}}" />
+        <img src="{{replaceS3 result.webImage.url}}" alt="{{result.title}}" />
+    </picture>
 </main>
