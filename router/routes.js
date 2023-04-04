@@ -10,6 +10,7 @@ const router = express.Router();
 async function fetchHomeData() {
     const res = (await Promise.all([
         fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=10`),
+        fetch(`https://www.rijksmuseum.nl/api/nl/collection/SK-A-3064/?key=${process.env.API_KEY}`),
         fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=100`)
     ])).map((res) => res.json());
 
@@ -22,9 +23,9 @@ async function fetchHomeData() {
 
 async function fetchCatagoryData(type, material, q) {
     const res = (await Promise.all([
-        fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=100&type=${type}`),
-        fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=100&material=${material}`),
-        fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=100&q=${q}`)
+        fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=50&type=${type}`),
+        fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=50&material=${material}`),
+        fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=50&q=${q}`)
     ])).map((res) => res.json());
 
     const jsonResult = await Promise.all(res).then((data) => {
@@ -77,7 +78,8 @@ router.get('/', function(req, res){
 
 router.get('/home', async (req, res) => {
     const homeData = await fetchHomeData();
-    const heroObject = homeData[1].artObjects.find(artObject => artObject.objectNumber === 'SK-A-3064');
+    // const heroObject = homeData[1].artObjects.find(artObject => artObject.objectNumber === 'SK-A-3064');
+    const heroObject = homeData[1].artObject;
 
     res.render('main', {layout : 'index', data: homeData[0].artObjects, hero: heroObject});
 })
@@ -95,7 +97,7 @@ router.post('/zoek-resultaten', async (req, res) => {
 
 router.get('/categorie/kunstenaars', async (req, res) => {
     const homeData = await fetchHomeData();
-    const artists = homeData[1].artObjects.map(artObject => artObject.principalOrFirstMaker);
+    const artists = homeData[2].artObjects.map(artObject => artObject.principalOrFirstMaker);
     const uniqueArtists = [...new Set(artists)];
 
     const result = uniqueArtists;
