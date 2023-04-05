@@ -10,7 +10,7 @@ const CORE_ASSETS =
   "/static/fonts/pannotextbold.woff2", 
   "/static/fonts/pannotextnormal.woff", 
   "/static/fonts/pannotextnormal.woff2", 
-  "/static/images/placeholder.png",
+  "/static/images/offline_image.png",
   "/images/favicon.png"
 ] // Alle assets die in de cache moeten komen
 
@@ -44,13 +44,12 @@ self.addEventListener('fetch', event => {
         .then(cache => cache.match(event.request.url))
     )
   } else if (isHtmlGetRequest(event.request)) {
-    // console.log('html get request', event.request.url)
-  
+    // console.log('html get request', event.request.cook)
     event.respondWith(
 
       caches.open('html-cache')
-      .then(cache => cache.match(event.request.url))
-      .then(response => response ? response : fetchAndCache(event.request, 'html-cache'))
+      .then(cache => cache.match(event.request.url)) // Check of de pagina al in de cache staat
+      .then(response => response ? response : fetchAndCache(event.request, 'html-cache')) 
       .catch(e => {
         return caches.open(CORE_CACHE_NAME)
           .then(cache => cache.match('/offline'))
