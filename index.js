@@ -12,14 +12,24 @@ const __dirname = path.resolve();
 app.set('view engine', 'hbs');
 app.set('views', 'views') 
 
+app.use((req, res, next) => {
+    res.setHeader('Cache-Control', 'max-age=' + 60 * 60 * 24 * 365);
+    next();
+});
 
 app.use(express.static(__dirname + '/static')); // Hier zit bijvoorbeeld css in
 app.use('/', express.static(__dirname + '/'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(cookieParser());
-app.use(session({secret: "Shh, its a secret!"}));
-
+// app.use(cookieParser());
+app.use(
+    session(
+        {
+            secret: "Shh, its a secret!", 
+            saveUninitialized: false,
+        }
+    )
+);
 
 app.engine('hbs', handlebars.engine({
     layoutsDir: __dirname + '/views/layouts',
