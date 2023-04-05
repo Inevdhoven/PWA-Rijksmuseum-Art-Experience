@@ -63,25 +63,19 @@ async function fetchDetailsData(objectNumber) {
     }
 }
 
-// router.get('/', async (req, res) => {
-//     res.render('zero-state', {layout : 'index'});
-// });
-
-router.get('/', function(req, res){
-    if(req.session.page_views){
-        res.redirect('/home');
+router.get('/', async function(req, res){
+    const homeData = await fetchHomeData();
+    const heroObject = homeData[1].artObject;
+    if(req.session.pageView){
+        res.render('main', {layout : 'index', data: homeData[0].artObjects, hero: heroObject})
     } else {
-       req.session.page_views = 1;
-       res.render('zero-state', {layout : 'index'});
+        req.session.pageView = 1;
+        res.redirect('/zero-state');
     }
 });
 
-router.get('/home', async (req, res) => {
-    const homeData = await fetchHomeData();
-    // const heroObject = homeData[1].artObjects.find(artObject => artObject.objectNumber === 'SK-A-3064');
-    const heroObject = homeData[1].artObject;
-
-    res.render('main', {layout : 'index', data: homeData[0].artObjects, hero: heroObject});
+router.get('/zero-state', async (req, res) => {
+    res.render('zero-state', {layout : 'index'});
 })
 
 router.get('/zoeken', async (req, res) => {
@@ -155,6 +149,7 @@ router.get('/offline', (req, res) => {
 });
 
 router.get('/error', (req, res) => {
+    console.log('@@-- error')
     res.render('error', {layout : 'index'});
 })
 
