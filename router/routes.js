@@ -106,7 +106,7 @@ router.get('/kunstenaars/:principalOrFirstMaker', async (req, res) => {
     const artistData = await fetchArtistsData(artistName);
     const result = artistData.artObjects;
     console.log(result);
-    res.render('overview-artist', {layout : 'index', result: result});
+    res.render('overview-artist', {layout : 'index', result: result, category: artistName});
 })
 
 router.get('/type/:type', async (req, res) => {
@@ -147,11 +147,5 @@ router.get('/details/:objectNumber', async (req, res) => {
 router.get('/offline', (req, res) => {
     res.render('offline', {layout : 'index'});
 });
-
-router.get('/error', (req, res) => {
-    console.log('@@-- error')
-    res.render('error', {layout : 'index'});
-})
-
 
 export {router}
