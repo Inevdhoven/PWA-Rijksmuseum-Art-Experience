@@ -2,6 +2,8 @@
 
 In deze repo kun je de server side versie van de Rijksmuseum Art Experience vinden. Dit project heb ik eerst gemaakt met het van Web App From Scratch voor de Minor Web Design & Development en heb ik nu omgezet naar een server side versie, met Node.js en Express.
 
+Je kunt de live versie van de app [hier](https://rijksmuseum-art-experience.cyclic.app) vinden.
+
 Hier komt een afbeelding van mijn werk.
 
 ## Tabel of contents
