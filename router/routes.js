@@ -8,13 +8,13 @@ dotenv.config();
 const router = express.Router();
 
 async function fetchHomeData() {
-    const res = (await Promise.all([
+    const res = (await Promise.all([ // Promise.all zorgt ervoor dat alle fetches tegelijkertijd worden uitgevoerd
         fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=10`),
         fetch(`https://www.rijksmuseum.nl/api/nl/collection/SK-A-3064/?key=${process.env.API_KEY}`),
         fetch(`https://www.rijksmuseum.nl/api/nl/collection/?key=${process.env.API_KEY}&ps=100`)
     ])).map((res) => res.json());
 
-    const jsonResult = await Promise.all(res).then((data) => {
+    const jsonResult = await Promise.all(res).then((data) => { 
         return data;
     });
 
