@@ -9,13 +9,7 @@
         {{#each result}}
             <li>
                 <a href="/details/{{this.objectNumber}}">
-                    {{!-- <img src="{{this.webImage.url}}" alt="{{this.title}}"> --}}
-                    <picture>
-                        <source media="(max-width: 499px)" srcset="{{replaceS0 this.webImage.url}}" />
-                        <source media="(min-width: 500px)" srcset="{{replaceS1 this.webImage.url}}" />
-                        <source media="(max-width: 1024px)" srcset="{{replaceS2 this.webImage.url}}" />
-                        <img src="{{replaceS3 this.webImage.url}}" alt="{{this.title}}" />
-                    </picture>
+                    <img src="{{this.webImage.url}}" alt="{{this.title}}">
                     <h2>{{this.title}}</h2>
                 </a>
             </li>
